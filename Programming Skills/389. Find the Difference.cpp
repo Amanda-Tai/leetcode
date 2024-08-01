@@ -1,13 +1,12 @@
 class Solution {
 public:
-    string mergeAlternately(string word1, string word2) {
-        string ans = "";
-        int n_min = min(word1.size(), word2.size());
-        for(int i = 0; i < n_min; ++i) {
-            ans += word1[i];
-            ans += word2[i];
-        }
+    char findTheDifference(string s, string t) {
+        int num_s = 0, num_t = 0;
+        for (char c : s) num_s += static_cast<int>(c);
+        for (char c : t) num_t += static_cast<int>(c);
+        int ans_i = abs(num_s - num_t);
+        char ans_c = static_cast<char>(ans_i);
 
-        return ans + word1.substr(n_min) + word2.substr(n_min);
+        return ans_c;
     }
 };
